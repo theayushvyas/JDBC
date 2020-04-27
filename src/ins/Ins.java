@@ -46,7 +46,7 @@ public class Ins{
             try
             {
                 
-                Connection con = GetConnection("jdbc:mysql://localhost:3306/ayush", "avyas", "avyas");
+                Connection con = GetConnection("jdbc:mysql://localhost:3306/<DATABASE>", "USERNAME", "PASSWORD");
                 String q = "create table info(id_no int(20) ,name varchar(20) , city varchar(20), UNIQUE(id_no))";
                 Statement st = con.createStatement();
                 st.executeUpdate(q);
@@ -63,7 +63,7 @@ public class Ins{
         {
                 try{
                     
-                    Connection con = GetConnection("jdbc:mysql://localhost:3306/ayush", "avyas", "avyas");
+                    Connection con = GetConnection("jdbc:mysql://localhost:3306/<DATABASE>", "USERNAME", "PASSWORD");
                     String q = "Insert into Login(User_name , Password) values (?,?)";
                     PreparedStatement st = con.prepareStatement(q);
                     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -93,7 +93,7 @@ public class Ins{
           {
               try{
                   
-                  Connection con = GetConnection("jdbc:mysql://localhost:3306/ayush", "avyas", "avyas");
+                  Connection con = GetConnection("jdbc:mysql://localhost:3306/<DATABASE>", "USERNAME", "PASSWORD");
                   String q = "select * from info";
                   Statement st = con.createStatement();
                   ResultSet rs = st.executeQuery(q);
@@ -120,7 +120,7 @@ public class Ins{
              try
                 {
                   
-                  Connection con = GetConnection("jdbc:mysql://localhost:3306/ayush", "avyas", "avyas");
+                  Connection con = GetConnection("jdbc:mysql://localhost:3306/<DATABASE>", "USERNAME", "PASSWORD");
                    Scanner sc = new Scanner(System.in);
                    System.out.println("Enter Id_no to delete");
                    int id_no = sc.nextInt();
@@ -158,9 +158,9 @@ public class Ins{
              try
              {
                 Class.forName("com.mysql.jdbc.Driver");
-                 url = "jdbc:mysql://localhost:3306/ayush";
-                 un  = "avyas";		
-                 pwd = "avyas";
+                 url = "jdbc:mysql://localhost:3306/<DATABASE>";
+                 un  = "YOUR MYSQL USERNAME";		
+                 pwd = "YOUR MYSQL PASSWORD";
                 Connection con = DriverManager.getConnection(url,un,pwd);
                 return con;
              }
